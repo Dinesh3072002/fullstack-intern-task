@@ -8,7 +8,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const isProd = import.meta.env.PROD;
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL || (isProd ? '/api' : 'http://localhost:5000');
 
     const token = localStorage.getItem('token');
     const userData = localStorage.getItem('user');
