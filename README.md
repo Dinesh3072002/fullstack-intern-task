@@ -48,6 +48,9 @@ A full-stack web application that allows users to browse, search, and favorite P
    ```
    *The frontend will run on http://localhost:5173*
 
+## build command  
+npm start
+
 ## 🧑‍💻 Author
 - **Name**: Dinesh
 - **GitHub**: [Dinesh3072002](https://github.com/Dinesh3072002)
