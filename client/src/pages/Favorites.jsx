@@ -14,7 +14,7 @@ const Favorites = () => {
 
   const fetchFavorites = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/favorites');
+      const res = await axios.get('/api/favorites');
       setFavorites(res.data);
     } catch (err) {
       console.error(err);
@@ -25,7 +25,7 @@ const Favorites = () => {
     e.preventDefault();
     e.stopPropagation();
     try {
-      await axios.post(`http://localhost:5000/api/favorites/${templateId}`);
+      await axios.post(`/api/favorites/${templateId}`);
       setFavorites(prev => prev.filter(t => (t.id || t._id) !== templateId));
     } catch (err) {
       console.error(err);

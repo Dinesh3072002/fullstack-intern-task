@@ -21,7 +21,7 @@ const Home = () => {
 
   const fetchTemplates = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/templates', {
+      const res = await axios.get('/api/templates', {
         params: { search }
       });
       setTemplates(res.data);
@@ -32,7 +32,7 @@ const Home = () => {
 
   const fetchFavorites = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/favorites');
+      const res = await axios.get('/api/favorites');
       const favSet = new Set(res.data.map(t => t.id || t._id));
       setFavorites(favSet);
     } catch (err) {
@@ -45,7 +45,7 @@ const Home = () => {
     e.stopPropagation();
     if (!user) return alert('Please log in to favorite templates');
     try {
-      const res = await axios.post(`http://localhost:5000/api/favorites/${templateId}`);
+      const res = await axios.post(`/api/favorites/${templateId}`);
       setFavorites(prev => {
         const next = new Set(prev);
         if (res.data.favorited) next.add(templateId);
